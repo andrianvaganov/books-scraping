@@ -80,7 +80,6 @@ def scrape_books(save_to_file: bool = False) -> list:
     page_num = 1
 
     while True:
-        print('parsing page', page_num)
         page_url = f"{base_url}page-{page_num}.html"
         res = requests.get(page_url)
         if res.status_code != 200:
@@ -113,6 +112,5 @@ f = open('../artifacts/books_data.txt', 'w')
 f.close()
 
 while True:
-    print('run in progress...', time.time())
     schedule.run_pending()
     time.sleep(60)
